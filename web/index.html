@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Variables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Variables</h1>
+    <form id="data-form" action="/predict" method="post" onsubmit="submitForm(event)">
+        <label for="EXT_SOURCE_1">EXT_SOURCE_1 (0 - 1):</label>
+        <input type="number" id="EXT_SOURCE_1" name="EXT_SOURCE_1" step="0.000001" min="0" max="1" required>
+
+        <label for="OCCUPATION_TYPE">OCCUPATION_TYPE:</label>
+        <select id="OCCUPATION_TYPE" name="OCCUPATION_TYPE" required>
+            <option value="Sales staff">Sales staff</option>
+            <option value="Medicine staff">Medicine staff</option>
+            <option value="SIN VALOR">SIN VALOR</option>
+            <option value="Managers">Managers</option>
+            <option value="Laborers">Laborers</option>
+            <option value="Core staff">Core staff</option>
+            <option value="High skill tech staff">High skill tech staff</option>
+            <option value="Security staff">Security staff</option>
+            <option value="Accountants">Accountants</option>
+            <option value="Private service staff">Private service staff</option>
+            <option value="Cleaning staff">Cleaning staff</option>
+            <option value="Cooking staff">Cooking staff</option>
+            <option value="Drivers">Drivers</option>
+            <option value="Low-skill Laborers">Low-skill Laborers</option>
+            <option value="IT staff">IT staff</option>
+            <option value="HR staff">HR staff</option>
+            <option value="Secretaries">Secretaries</option>
+            <option value="Realty agents">Realty agents</option>
+            <option value="Waiters/barmen staff">Waiters/barmen staff</option>
+        </select>
+
+        <label for="EXT_SOURCE_3">EXT_SOURCE_3 (0 - 1):</label>
+        <input type="number" id="EXT_SOURCE_3" name="EXT_SOURCE_3" step="0.000001" min="0" max="1" required>
+
+        <label for="AMT_REQ_CREDIT_BUREAU_QRT">AMT_REQ_CREDIT_BUREAU_QRT (0 - 500):</label>
+        <input type="number" id="AMT_REQ_CREDIT_BUREAU_QRT" name="AMT_REQ_CREDIT_BUREAU_QRT" step="0.01" min="0" max="500" required>
+
+        <label for="DEF_30_CNT_SOCIAL_CIRCLE">DEF_30_CNT_SOCIAL_CIRCLE (0 - 500):</label>
+        <input type="number" id="DEF_30_CNT_SOCIAL_CIRCLE" name="DEF_30_CNT_SOCIAL_CIRCLE" step="0.01" min="0" max="500" required>
+
+        <label for="EXT_SOURCE_2">EXT_SOURCE_2 (0 - 1):</label>
+        <input type="number" id="EXT_SOURCE_2" name="EXT_SOURCE_2" step="0.000001" min="0" max="1" required>
+
+        <label for="AMT_GOODS_PRICE">AMT_GOODS_PRICE (0 - 10,000,000):</label>
+        <input type="number" id="AMT_GOODS_PRICE" name="AMT_GOODS_PRICE" step="0.01" min="0" max="10000000" required>
+
+        <label for="AMT_ANNUITY">AMT_ANNUITY (0 - 300,000):</label>
+        <input type="number" id="AMT_ANNUITY" name="AMT_ANNUITY" step="0.01" min="0" max="300000" required>
+
+        <label for="DAYS_LAST_PHONE_CHANGE">DAYS_LAST_PHONE_CHANGE (-10,000 - 0):</label>
+        <input type="number" id="DAYS_LAST_PHONE_CHANGE" name="DAYS_LAST_PHONE_CHANGE" min="-10000" max="0" required>
+
+        <label for="CODE_GENDER">CODE_GENDER:</label>
+        <select id="CODE_GENDER" name="CODE_GENDER" required>
+            <option value="F">F</option>
+            <option value="M">M</option>
+            <option value="XNA">XNA</option>
+        </select>
+
+        <label for="FLAG_OWN_CAR">FLAG_OWN_CAR:</label>
+        <select id="FLAG_OWN_CAR" name="FLAG_OWN_CAR" required>
+            <option value="N">N</option>
+            <option value="Y">Y</option>
+        </select>
+
+        <label for="FLAG_DOCUMENT_3">FLAG_DOCUMENT_3:</label>
+        <select id="FLAG_DOCUMENT_3" name="FLAG_DOCUMENT_3" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+
+        <label for="FLAG_DOCUMENT_16">FLAG_DOCUMENT_16:</label>
+        <select id="FLAG_DOCUMENT_16" name="FLAG_DOCUMENT_16" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+
+        <label for="AMT_CREDIT">AMT_CREDIT (0 - 5,000,000):</label>
+        <input type="number" id="AMT_CREDIT" name="AMT_CREDIT" step="0.01" min="0" max="5000000" required>
+
+        <label for="REG_CITY_NOT_LIVE_CITY">REG_CITY_NOT_LIVE_CITY:</label>
+        <select id="REG_CITY_NOT_LIVE_CITY" name="REG_CITY_NOT_LIVE_CITY" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+
+        <label for="REGION_RATING_CLIENT_W_CITY">REGION_RATING_CLIENT_W_CITY:</label>
+        <select id="REGION_RATING_CLIENT_W_CITY" name="REGION_RATING_CLIENT_W_CITY" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <label for="ORGANIZATION_TYPE">ORGANIZATION_TYPE:</label>
+        <select id="ORGANIZATION_TYPE" name="ORGANIZATION_TYPE" required>
+            <option value="Self-employed">Self-employed</option>
+            <option value="Medicine">Medicine</option>
+            <option value="Business Entity Type 3">Business Entity Type 3</option>
+            <option value="Trade: type 7">Trade: type 7</option>
+            <option value="Industry: type 9">Industry: type 9</option>
+            <option value="XNA">XNA</option>
+            <option value="School">School</option>
+            <option value="Trade: type 3">Trade: type 3</option>
+            <option value="Transport: type 4">Transport: type 4</option>
+            <option value="Security">Security</option>
+            <option value="Construction">Construction</option>
+            <option value="Other">Other</option>
+            <option value="Trade: type 2">Trade: type 2</option>
+            <option value="Housing">Housing</option>
+            <option value="Kindergarten">Kindergarten</option>
+            <option value="Security Ministries">Security Ministries</option>
+        </select>
+
+        <label for="DAYS_ID_PUBLISH">DAYS_ID_PUBLISH (-10,000 - 0):</label>
+        <input type="number" id="DAYS_ID_PUBLISH" name="DAYS_ID_PUBLISH" min="-10000" max="0" required>
+
+        <label for="NAME_EDUCATION_TYPE">NAME_EDUCATION_TYPE:</label>
+        <select id="NAME_EDUCATION_TYPE" name="NAME_EDUCATION_TYPE" required>
+            <option value="Secondary / secondary special">Secondary / secondary special</option>
+            <option value="Higher education">Higher education</option>
+            <option value="Incomplete higher">Incomplete higher</option>
+            <option value="Academic degree">Academic degree</option>
+            <option value="Lower secondary">Lower secondary</option>
+        </select>
+
+        <label for="FLAG_WORK_PHONE">FLAG_WORK_PHONE:</label>
+        <select id="FLAG_WORK_PHONE" name="FLAG_WORK_PHONE" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+    async function submitForm(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Convertir los datos del formulario a un objeto JSON
+        const jsonData = {};
+        formData.forEach((value, key) => {
+            jsonData[key] = value;
+        });
+
+        // Enviar datos al backend
+        const response = await fetch(form.action, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(jsonData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert(`Predicción: ${result.prediction}`);
+        } else {
+            alert(`Error: ${result.error}`);
+        }
+    }
+    </script>
+</body>
+</html>
